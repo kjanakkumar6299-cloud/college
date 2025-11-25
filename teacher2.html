@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Faculty – U.H.S College Konahara</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --brand:#0b1120;
+  --accent:#ffcc33;
+  --muted:#6b7a90;
+  --bg:#f4f6fb;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Inter",sans-serif;}
+body{background:var(--bg);color:#0b1120;line-height:1.5}
+
+/* HEADER */
+.header{
+  background:var(--brand);
+  padding:22px;
+  font-size:28px;
+  font-weight:800;
+  text-align:center;
+  color:#fff;
+  letter-spacing:1px;
+  box-shadow:0 6px 32px rgba(0,0,0,0.45);
+}
+
+/* PAGE TITLE */
+.page-title{
+  text-align:center;
+  margin:30px auto 10px;
+  font-size:32px;
+  font-weight:800;
+  color:var(--brand);
+}
+
+/* GRID */
+.teacher-grid{
+  max-width:1200px;
+  margin:25px auto;
+  padding:0 20px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:22px;
+}
+
+/* CARD */
+.teacher-card{
+  background:#fff;
+  padding:20px;
+  border-radius:16px;
+  text-align:center;
+  box-shadow:0 6px 26px rgba(0,0,0,0.12);
+  transition:.25s;
+}
+.teacher-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 10px 36px rgba(0,0,0,0.25);
+}
+
+.teacher-card img{
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  object-fit:cover;
+  border:4px solid var(--accent);
+  margin-bottom:12px;
+}
+
+.teacher-card h3{
+  font-size:20px;
+  margin-bottom:6px;
+  color:var(--brand);
+}
+
+.teacher-card .subject{
+  font-size:15px;
+  color:var(--accent);
+  font-weight:700;
+  margin-bottom:8px;
+}
+
+.teacher-card p{
+  font-size:14px;
+  color:#555;
+  margin-bottom:6px;
+}
+
+.teacher-card .social a{
+  margin:0 6px;
+  color:var(--brand);
+  font-weight:700;
+  text-decoration:none;
+}
+
+footer{
+  margin-top:30px;
+  padding:14px;
+  text-align:center;
+  background:var(--brand);
+  color:#fff;
+}
+</style>
+</head>
+<body>
+
+<div class="header">U.H.S College Konahara</div>
+
+<h2 class="page-title">Our Faculty Members</h2>
+
+<div class="teacher-grid">
+
+  <!-- 1 Teacher -->
+  <div class="teacher-card">
+    <img src="janak68.jpeg" alt="Teacher Photo">
+    <h3>Mr. Uttam kumar</h3>
+    <div class="subject">BCA • Computer Science</div>
+    <p><strong>Qualification:</strong> MCA, B.Tech (CS)</p>
+    <p><strong>Experience:</strong> 8 Years</p>
+    <p><strong>Specialization:</strong> Programming, Web Development</p>
+    <p><strong>Email:</strong> rajesh@college.com</p>
+  </div>
+
+  <!-- 2 Teacher -->
+  <div class="teacher-card">
+    <img src="janak67.jpeg" alt="Teacher Photo">
+    <h3>Mr. Janak kumar</h3>
+    <div class="subject">BBA • Management</div>
+    <p><strong>Qualification:</strong> MBA, M.Com</p>
+    <p><strong>Experience:</strong> 6 Years</p>
+    <p><strong>Specialization:</strong> HR, Business Strategy</p>
+    <p><strong>Email:</strong> pooja@college.com</p>
+  </div>
+
+  <!-- 3 Teacher -->
+  <div class="teacher-card">
+    <img src="vishal.jpeg" alt="Teacher Photo">
+    <h3>Er. Vishal kumar</h3>
+    <div class="subject">Science Faculty</div>
+    <p><strong>Qualification:</strong> PhD (Physics)</p>
+    <p><strong>Experience:</strong> 12 Years</p>
+    <p><strong>Specialization:</strong> Physics, Research</p>
+    <p><strong>Email:</strong> amit@college.com</p>
+  </div>
+
+  <!-- 4 Teacher -->
+  <div class="teacher-card">
+    <img src="manjit.jpeg" alt="Teacher Photo">
+    <h3>Dr. manjeet Prasad</h3>
+    <div class="subject">Arts Faculty</div>
+    <p><strong>Qualification:</strong> MA, B.Ed</p>
+    <p><strong>Experience:</strong> 7 Years</p>
+    <p><strong>Specialization:</strong> English, Social Science</p>
+    <p><strong>Email:</strong> neha@college.com</p>
+  </div>
+
+
+
+
+</div>
+
+<footer>© 2025 U.H.S College Konahara — All Rights Reserved</footer>
+
+</body>
+</html>

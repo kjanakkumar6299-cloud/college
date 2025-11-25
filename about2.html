@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About – U.H.S College Konahara</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --brand:#0b1120;
+  --accent:#ffcc33;
+  --muted:#6b7a90;
+  --bg:#f4f6fb;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Inter",sans-serif;}
+body{background:var(--bg);color:#0b1120;line-height:1.6}
+
+/* HEADER */
+.header{
+  background:var(--brand);
+  padding:20px;
+  font-size:26px;
+  font-weight:800;
+  text-align:center;
+  color:#fff;
+  letter-spacing:1px;
+  box-shadow:0 6px 32px rgba(0,0,0,0.4);
+}
+
+/* HERO BANNER */
+.hero{
+  position:relative;
+  height:330px;
+  background:url("collage.jpg") center/cover no-repeat;
+}
+.hero::after{
+  content:"";
+  position:absolute;inset:0;
+  background:rgba(0,0,0,0.55);
+}
+.hero-content{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  text-align:center;color:#fff;
+  max-width:750px;
+}
+.hero-content h1{
+  font-size:42px;font-weight:800;
+  margin-bottom:10px;
+  color:var(--accent);
+}
+.hero-content p{font-size:17px}
+
+/* MAIN */
+.container{
+  max-width:1150px;
+  margin:40px auto;
+  padding:0 20px;
+}
+
+.section-title{
+  font-size:30px;font-weight:800;
+  margin-bottom:18px;
+  color:var(--brand);
+}
+.block{
+  background:#fff;
+  padding:22px;
+  border-radius:16px;
+  box-shadow:0 6px 26px rgba(0,0,0,0.12);
+  margin-bottom:30px;
+}
+
+h3{
+  font-size:20px;font-weight:700;margin-bottom:10px;color:var(--brand);
+}
+
+.block p{
+  font-size:15px;
+  color:#444;
+  margin-bottom:10px;
+}
+
+/* INFO GRID */
+.info-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+  gap:18px;
+}
+.info-box{
+  background:#fff;
+  padding:20px;
+  border-radius:16px;
+  box-shadow:0 4px 18px rgba(0,0,0,0.10);
+  border-top:4px solid var(--accent);
+}
+.info-box p{color:#555;font-size:14px}
+
+/* PRINCIPAL CARD */
+.principal-card{
+  display:flex;
+  gap:20px;
+  padding:20px;
+  background:#fff;
+  border-radius:18px;
+  box-shadow:0 8px 32px rgba(0,0,0,0.12);
+  flex-wrap:wrap;
+}
+.principal-card img{
+  width:180px;
+  height:180px;
+  object-fit:cover;
+  border-radius:50%;
+  border:4px solid var(--accent);
+}
+
+/* CLICKABLE BUTTONS */
+.btn-grid{
+  margin-top:25px;
+  display:grid;
+  gap:18px;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+}
+.btn-card{
+  background:#fff;
+  padding:22px;
+  border-radius:14px;
+  text-align:center;
+  box-shadow:0 6px 22px rgba(0,0,0,0.12);
+  cursor:pointer;
+  transition:0.25s;
+}
+.btn-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 12px 35px rgba(0,0,0,0.18);
+}
+.btn-card h3{font-size:18px;margin-bottom:6px;color:var(--brand)}
+.btn-card p{font-size:14px;color:#777}
+
+/* FOOTER */
+footer{
+  background:var(--brand);
+  color:#fff;
+  padding:16px;
+  text-align:center;
+  margin-top:40px;
+}
+</style>
+</head>
+<body>
+
+<div class="header">About U.H.S College Konahara</div>
+
+<div class="hero">
+  <div class="hero-content">
+    <h1>Welcome to U.H.S College Konahara</h1>
+    <p>25+ वर्षों से शिक्षा, अनुशासन और भविष्य निर्माण का प्रतीक</p>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- INTRO -->
+  <h2 class="section-title">Our Institution</h2>
+  <div class="block">
+    <p>U.H.S College Konahara की स्थापना 1995 में की गई थी। यह कॉलेज ग्रामीण एवं शहरी क्षेत्र के छात्रों के लिए आधुनिक, सुरक्षित और प्रेरणादायक वातावरण उपलब्ध कराता है।</p>
+    <p>हमारा लक्ष्य युवाओं को नैतिक मूल्यों, तकनीकी ज्ञान और करियर विकास की दिशा में सशक्त बनाना है।</p>
+  </div>
+
+  <!-- MISSION — VISION -->
+  <h2 class="section-title">Mission • Vision • Values</h2>
+  <div class="info-grid">
+    <div class="info-box">
+      <h3>Our Mission</h3>
+      <p>उच्च गुणवत्ता की सुलभ शिक्षा उपलब्ध कराना।</p>
+      <p>कौशल विकास एवं तकनीकी प्रशिक्षण प्रदान करना।</p>
+    </div>
+
+    <div class="info-box">
+      <h3>Our Vision</h3>
+      <p>Digital Learning और Modern Education में अग्रणी बनना।</p>
+    </div>
+
+    <div class="info-box">
+      <h3>Core Values</h3>
+      <p>Discipline • Excellence • Respect • Innovation • Integrity</p>
+    </div>
+  </div>
+
+  <!-- CAMPUS FEATURES -->
+  <h2 class="section-title">Campus Highlights</h2>
+  <div class="info-grid">
+    <div class="info-box"><h3>Smart Classes</h3><p>Digital teaching & projector-enabled rooms</p></div>
+    <div class="info-box"><h3>Computer Lab</h3><p>Latest PCs • High-speed Internet</p></div>
+    <div class="info-box"><h3>Library</h3><p>Study material, books, journals & e-learning</p></div>
+    <div class="info-box"><h3>Sports</h3><p>Indoor & outdoor sports facilities</p></div>
+  </div>
+
+  <!-- PRINCIPAL SECTION -->
+  <h2 class="section-title">Message from Principal</h2>
+  <div class="principal-card">
+    <img src="janak67.jpeg" alt="Principal">
+    <div>
+      <h3>Principal — U.H.S College Konahara</h3>
+      <p>हमारा उद्देश्य छात्रों को गुणवत्तापूर्ण शिक्षा के साथ-साथ आत्मविश्वास, कौशल और नैतिक मूल्यों से युक्त बनाना है।</p>
+      <p>हम अपने छात्रों के उज्ज्वल भविष्य के लिए निरंतर प्रयासरत हैं।</p>
+    </div>
+  </div>
+
+  <!-- BUTTONS -->
+  <h2 class="section-title">Explore More</h2>
+  <div class="btn-grid">
+
+    <a href="add2.html#admission">
+      <div class="btn-card">
+        <h3>Admission</h3>
+        <p>Apply Online for 2025–26 Session</p>
+      </div>
+    </a>
+
+    <a href="kye.html#courses">
+      <div class="btn-card">
+        <h3>Programs</h3>
+        <p>Explore all courses offered</p>
+      </div>
+    </a>
+
+    <a href="contact.html">
+      <div class="btn-card">
+        <h3>Contact Us</h3>
+        <p>Need help? Get in touch</p>
+      </div>
+    </a>
+
+
+    <a href="teacher2.html">
+        <div class="btn-card">
+          <h3>teacher</h3>
+          <p>Explore all Teachar</p>
+        </div>
+      </a>
+
+      <a href="fasillities.html">
+        <div class="btn-card">
+          <h3>Feasibility</h3>
+          <p>Explore all Feasibility</p>
+        </div>
+      </a>
+  
+
+
+
+  </div>
+</div>
+
+<footer>© 2025 U.H.S College Konahara — All Rights Reserved</footer>
+
+</body>
+</html>

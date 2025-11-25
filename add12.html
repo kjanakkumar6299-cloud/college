@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>12th Admission - Registration Form (A4)</title>
+  <style>
+    @page { size: A4; margin: 18mm; } /* A4 for print */
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f4f6;
+      margin: 0;
+      padding: 0;
+    }
+    .paper {
+      width: 210mm;
+      min-height: 297mm;
+      background: #fff;
+      margin: 10mm auto;
+      padding: 18mm;
+      box-sizing: border-box;
+      border: 1px solid #ddd;
+    }
+    header{
+      display:flex;
+      gap:14px;
+      align-items:center;
+      border-bottom:2px solid #333;
+      margin-bottom:14px;
+      padding-bottom:8px;
+    }
+    .logo img{
+      width:80px;
+      height:80px;
+      object-fit:contain;
+    }
+    .head-text h1{
+      margin:0;
+      font-size:20px;
+    }
+    .form-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+    .field{
+      display:flex;
+      flex-direction:column;
+    }
+    label{
+      font-weight:600;
+      margin-bottom:4px;
+    }
+    input,select{
+      padding:7px;
+      border:1px solid #999;
+      border-radius:4px;
+    }
+    .photo{
+      width:90px;
+      height:110px;
+      border:1px solid #888;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin-top:6px;
+    }
+    .section-title{
+      margin-top:18px;
+      font-weight:700;
+      border-bottom:1px dashed #aaa;
+      padding-bottom:4px;
+    }
+    .submit-btn{
+      margin-top:18px;
+      width:100%;
+      padding:10px;
+      background:#222;
+      color:#fff;
+      font-size:16px;
+      border:none;
+      cursor:pointer;
+    }
+    /* Responsive */
+    @media screen and (max-width: 768px) {
+      .paper {
+        width: 100% !important;
+        margin: 0;
+        padding: 16px;
+        border: none;
+      }
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+      header{
+        flex-direction:column;
+        text-align:center;
+      }
+      .logo img{
+        width:65px;
+        height:65px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="paper">
+    <header>
+      <div class="logo">
+        <img src="vikash.jpg" alt="College Logo">
+      </div>
+      <div class="head-text">
+        <h1>admission Form / प्रवेश / दाख़िला फॉर्म</h1>
+        <p>Issued by: Bihar School Examination Board</p>
+      </div>
+    </header>
+
+    <form>
+      <div class="form-grid">
+        <div class="field">
+          <label>Full Name (पूरा नाम)</label>
+          <input type="text" required>
+        </div>
+
+        <div class="field">
+          <label>Aadhaar Number (आधार नंबर)</label>
+          <input type="text" required>
+        </div>
+
+        <div class="field">
+          <label>Father / Guardian Name (पिता/अभिभावक का नाम)</label>
+          <input type="text" required>
+        </div>
+
+        <div class="field">
+          <label>Date of Birth (जन्म तिथि)</label>
+          <input type="date" required>
+        </div>
+
+        <div class="field">
+          <label>Email ID (ईमेल आईडी)</label>
+          <input type="email" required>
+        </div>
+
+        <div class="field">
+          <label>Bank Account Number</label>
+          <input type="text" required>
+        </div>
+
+        <div class="field">
+          <label>IFSC Code</label>
+          <input type="text">
+        </div>
+
+        <div class="field">
+          <label>Physical Identification Mark (शारीरिक पहचान चिन्ह)</label>
+          <input type="text">
+        </div>
+
+        <div class="field">
+          <label>Medium (भाषा माध्यम)</label>
+          <select required>
+            <option>Hindi</option>
+            <option>English</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Bihar Board Registration Number</label>
+          <input type="text">
+        </div>
+
+        <div class="field">
+          <label>10th Roll No.</label>
+          <input type="text">
+        </div>
+
+        <div class="field">
+          <label>10th Marksheet (Marks)</label>
+          <input type="text">
+        </div>
+
+        <div class="field">
+          <label>Transfer Certificate (TC)</label>
+          <select>
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Character Certificate</label>
+          <select>
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Migration Certificate</label>
+          <select>
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Caste Certificate</label>
+          <select>
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </div>
+
+        <div class="field" style="text-align:center;">
+            <label>Passport Size Photo</label>
+          
+            <!-- Preview Box -->
+            <div class="photo">
+              <img id="photoPreview" style="width:100%;height:100%;object-fit:cover;display:none;">
+              <span id="photoText">Upload Photo</span>
+            </div>
+          
+            <!-- Upload Input -->
+            <input type="file" id="photoInput" accept="image/*" style="margin-top:8px;">
+          </div>
+          
+
+      <div class="section-title">Declaration / घोषणा</div>
+      <p>मैं यह घोषित करता/करती हूँ कि उपरोक्त सभी जानकारी सही है।</p>
+
+      <button class="submit-btn">Submit</button>
+    </form>
+  </div>
+  <script>
+    document.getElementById("photoInput").addEventListener("change", function(){
+      const file = this.files[0];
+      if(file){
+        const reader = new FileReader();
+        reader.onload = function(e){
+          const img = document.getElementById("photoPreview");
+          img.src = e.target.result;
+          img.style.display = "block";
+          document.getElementById("photoText").style.display = "none";
+        }
+        reader.readAsDataURL(file);
+      }
+    });
+  </script>
+  
+</body>
+</html> 

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us – Your College</title>
+
+  <style>
+    body{
+      margin:0;
+      font-family:Arial, sans-serif;
+      background:#f3f5f7;
+    }
+
+    .contact-container{
+      width:90%;
+      max-width:1100px;
+      margin:auto;
+      padding:20px;
+    }
+
+    h1{
+      text-align:center;
+      color:#0b5394;
+      margin-bottom:20px;
+    }
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+    }
+
+    .box{
+      background:white;
+      padding:20px;
+      border-radius:8px;
+      box-shadow:0 0 8px rgba(0,0,0,0.1);
+    }
+
+    .label{
+      margin-top:10px;
+      margin-bottom:4px;
+      font-weight:bold;
+    }
+
+    input,textarea{
+      width:100%;
+      padding:10px;
+      border:1px solid #aaa;
+      border-radius:5px;
+    }
+
+    textarea{
+      height:120px;
+    }
+
+    .btn{
+      margin-top:12px;
+      background:#0b5394;
+      color:white;
+      padding:12px;
+      width:100%;
+      font-size:16px;
+      border:none;
+      cursor:pointer;
+    }
+
+    .btn:hover{
+      background:#093a68;
+    }
+
+    iframe{
+      width:100%;
+      height:100%;
+      border:0;
+      border-radius:8px;
+    }
+
+    @media(max-width:768px){
+      .contact-grid{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="contact-container">
+    
+    <h1>📞 Contact Us</h1>
+
+    <div class="contact-grid">
+
+      <!-- Contact Form -->
+      <div class="box">
+        <label class="label">Full Name</label>
+        <input type="text" placeholder="Enter your name">
+
+        <label class="label">Mobile Number</label>
+        <input type="text" placeholder="Enter your phone">
+
+        <label class="label">Email</label>
+        <input type="email" placeholder="Enter your email">
+
+        <label class="label">Subject</label>
+        <input type="text" placeholder="Subject">
+
+        <label class="label">Message</label>
+        <textarea placeholder="Write message"></textarea>
+
+        <button class="btn">Send Message</button>
+      </div>
+
+
+      <!-- Contact Details + Google Map -->
+      <div class="box">
+        <h3>📍 College Address</h3>
+        <p>
+          U.H.S KONAHARA<br>
+          Near Bus Stand, konahara<br>
+          Bihar – 802132
+        </p>
+
+        <h3>📞 Phone</h3>
+        <p>+91 93911 31352</p>
+
+        <h3>📧 Email</h3>
+        <p>janakkumarc1321@gmail.com</p>
+
+        <h3>🕒 Office Hours</h3>
+        <p>Mon–Sat : 10:00 AM – 04:00 PM</p>
+
+        <h3>📌 Map</h3>
+        <iframe 
+          src="https://www.google.com/maps/embed?pb="" 
+          loading="lazy">
+        </iframe>
+      </div>
+
+    </div>
+
+  </div>
+
+  
+  <script>
+    document.querySelector(".btn").addEventListener("click", () => {
+      alert("✅ Your message has been noted!");
+    });
+  </script>
+
+</body>
+</html>

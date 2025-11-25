@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>School Admission Portal</title>
+
+<style>
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Inter, Arial, sans-serif;
+}
+
+/* BACKGROUND IMAGE */
+body{
+  background:url('https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1200&q=60') no-repeat center center/cover;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:20px;
+  backdrop-filter:blur(4px);
+}
+
+/* LOGO */
+.logo-box{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-top:15px;
+  padding:10px 18px;
+  background:#ffffffcc;
+  border-radius:14px;
+  backdrop-filter:blur(6px);
+  box-shadow:0 4px 16px rgba(0,0,0,0.15);
+}
+.logo-box img{
+  width:48px;
+  height:48px;
+  border-radius:10px;
+}
+.logo-box h2{
+  font-size:22px;
+  color:#1e3a8a;
+  font-weight:700;
+}
+
+/* MAIN BOX */
+.admission-box{
+  width:100%;
+  max-width:420px;
+  margin-top:25px;
+  background:#ffffffcc;
+  padding:30px;
+  border-radius:18px;
+  backdrop-filter:blur(10px);
+  box-shadow:0 12px 40px rgba(0,0,0,0.25);
+  animation:fadeIn .7s ease-in-out;
+}
+
+/* HEADER TEXT */
+.admission-box h1{
+  font-size:24px;
+  text-align:center;
+  color:#0f172a;
+  margin-bottom:10px;
+}
+.admission-box p{
+  color:#475569;
+  text-align:center;
+  margin-bottom:20px;
+}
+
+/* BUTTONS */
+.admission-buttons{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+.admit-btn{
+  text-decoration:none;
+  padding:16px;
+  border-radius:12px;
+  color:white;
+  text-align:center;
+  font-size:18px;
+  font-weight:600;
+  display:flex;
+  flex-direction:column;
+  gap:3px;
+  transition:.25s ease;
+  box-shadow:0 6px 18px rgba(0,0,0,0.20);
+}
+
+.admit-btn small{
+  font-size:14px;
+  opacity:.9;
+}
+
+/* Hover */
+.admit-btn:hover{
+  transform:translateY(-4px) scale(1.02);
+}
+
+/* CLASS COLORS */
+.grade9{
+  background:linear-gradient(135deg,#2ec866,#1a9f52);
+}
+.grade10{
+  background:linear-gradient(135deg,#2b7cff,#1b53d6);
+}
+.grade11{
+  background:linear-gradient(135deg,#ff9b47,#ff6d00);
+}
+.grade12{
+  background:linear-gradient(135deg,#7a5cff,#5a31d6);
+}
+
+/* FOOTER */
+footer{
+  margin-top:auto;
+  font-size:13px;
+  color:white;
+  text-shadow:0 2px 4px #000;
+  padding:15px;
+}
+
+/* Animation */
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:1; transform:translateY(0);}
+}
+</style>
+
+</head>
+<body>
+
+<!-- LOGO AREA -->
+<div class="logo-box">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/7/70/User_icon_BLACK-01.png">
+  <h2>School Admission Portal</h2>
+</div>
+
+<!-- MAIN ADMISSION BOX -->
+<div class="admission-box">
+  <h1>Choose Your Class</h1>
+  <p>Select your standard & proceed with admission</p>
+
+  <div class="admission-buttons">
+
+    <a href="9th.html" class="admit-btn grade9">
+      9th Class Admission
+      <small>Click to Apply</small>
+    </a>
+
+    <a href="10th.html" class="admit-btn grade10">
+      10th Class Admission
+      <small>Click to Apply</small>
+    </a>
+
+    <a href="registation.html" class="admit-btn grade11">
+      11th Class Admission
+      <small>Science / Commerce / Arts</small>
+    </a>
+
+    <a href="add12.html" class="admit-btn grade12">
+      12th Class Admission
+      <small>Science / Commerce / Arts</small>
+    </a>
+
+  </div>
+</div>
+
+<footer>
+  © 2025 • School Admission Portal • All Rights Reserved
+</footer>
+
+<script>
+// आप चाहें तो यहाँ JS जोड़ सकते हैं
+console.log("Admission Portal Loaded Successfully!");
+</script>
+
+</body>
+</html>

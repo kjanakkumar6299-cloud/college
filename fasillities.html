@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Facilities — U.H.S konahara</title>
+<style>
+  body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#f4f6f9;
+    color:#333;
+  }
+  header{
+    display:flex;
+    align-items:center;
+    padding:20px;
+    background:#0b5394;
+    color:#fff;
+    gap:12px;
+  }
+  header img{
+    height:60px;
+    border-radius:8px;
+  }
+  header h1{
+    margin:0;
+    font-size:22px;
+  }
+  .container{
+    padding:30px 20px;
+    max-width:1200px;
+    margin:0 auto;
+  }
+  h2{
+    text-align:center;
+    color:#0b5394;
+    margin-bottom:40px;
+    font-size:28px;
+  }
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+  }
+  .card{
+    background:#fff;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor:pointer;
+  }
+  .card:hover{
+    transform: translateY(-6px);
+    box-shadow:0 12px 30px rgba(0,0,0,0.15);
+  }
+  .card img{
+    width:100%;
+    height:160px;
+    object-fit:cover;
+  }
+  .card-content{
+    padding:16px;
+  }
+  .card-content h3{
+    margin:0 0 10px 0;
+    color:#073b63;
+    font-size:18px;
+  }
+  .card-content p{
+    margin:0;
+    font-size:14px;
+    color:#555;
+  }
+  @media(max-width:600px){
+    header{
+      flex-direction:column;
+      text-align:center;
+      gap:10px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="jk.png" alt="College Logo">
+  <h1>Your College Name</h1>
+</header>
+
+<div class="container">
+  <h2>Facilities / सुविधाएँ</h2>
+  <div class="grid">
+    <div class="card">
+      <img src="smart.jpg" alt="Smart Classroom">
+      <div class="card-content">
+        <h3>Smart Classrooms</h3>
+        <p>Interactive and modern teaching facilities for students.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="computer.jpg" alt="Computer Lab">
+      <div class="card-content">
+        <h3>Computer Lab</h3>
+        <p>Well-equipped labs with latest software and hardware.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="library.jpg" alt="Library">
+      <div class="card-content">
+        <h3>Library</h3>
+        <p>Extensive collection of books and digital resources.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="gym.jpg" alt="Sports & Gym">
+      <div class="card-content">
+        <h3>Sports & Gym</h3>
+        <p>Facilities for indoor/outdoor games and fitness.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="hostal.jpg" alt="Hostel">
+      <div class="card-content">
+        <h3>Hostel</h3>
+        <p>Separate hostels for boys and girls with proper amenities.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="hospital.jpg" alt="Medical & Security">
+      <div class="card-content">
+        <h3>Medical & Security</h3>
+        <p>On-campus medical facilities and 24/7 security.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

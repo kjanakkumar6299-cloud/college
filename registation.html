@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Common Application Form (CAF) — OFSS Style</title>
+<style>
+    :root{
+      --page-w: 820px;
+      --accent: #003366;
+      --muted: #555;
+      --field-h: 34px;
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      color:#111;
+    }
+  
+    body {
+      background:#f3f4f6;
+      padding:18px;
+      display:flex;
+      justify-content:center;
+    }
+  
+    /* ✅ Responsive container */
+    .page{
+      width:100%;
+      max-width:var(--page-w);
+      background:#fff;
+      padding:14px;
+      border:1px solid #cfcfcf;
+      box-shadow:0 6px 18px rgba(0,0,0,0.06);
+    }
+  
+    header{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      flex-wrap:wrap;
+      justify-content:space-between;
+      text-align:center;
+    }
+  
+    .left-logo{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+  
+    .left-logo img{
+      width:68px;
+      height:68px;
+      object-fit:contain;
+      border-radius:4px;
+    }
+  
+    .title{ text-align:center; flex:1; }
+  
+    .title h1{margin:0; font-size:20px; letter-spacing:0.2px;}
+    .title h2{margin:0; font-size:14px; color:var(--muted);}
+    .right-id{text-align:center; font-size:12px;}
+  
+    hr{border:none; border-top:1px solid #ddd; margin:12px 0;}
+  
+    .section{
+      border:1px solid #cfcfcf;
+      margin-bottom:10px;
+    }
+  
+    .section .heading{
+      background:#efefef;
+      padding:6px 10px;
+      font-weight:600;
+      color:var(--accent);
+    }
+  
+    .section .body{
+      padding:10px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+  
+    /* ✅ Auto wrap rows */
+    .row{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+  
+    .col{
+      flex:1;
+      min-width:200px;
+    }
+  
+    label{
+      display:block;
+      font-size:12px;
+      color:var(--muted);
+      margin-bottom:4px;
+    }
+  
+    input[type=text], input[type=number], input[type=date], select, textarea{
+      width:100%;
+      height:var(--field-h);
+      padding:6px 8px;
+      border:1px solid #bbb;
+      border-radius:4px;
+      box-sizing:border-box;
+    }
+  
+    textarea{
+      height:80px;
+      resize:vertical;
+    }
+  
+    .photo-box{
+      width:120px;
+      height:140px;
+      border:1px dashed #bbb;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:12px;
+      color:#666;
+      background:#fafafa;
+      border-radius:4px;
+      overflow:hidden;
+    }
+  
+    /* ✅ Buttons responsive */
+    .btns{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin:10px 0;
+    }
+  
+    button{
+      padding:8px 14px;
+      border:none;
+      border-radius:6px;
+      cursor:pointer;
+      white-space:nowrap;
+    }
+  
+    .primary{background:var(--accent); color:#fff;}
+    .muted{background:#eee; color:#111;}
+  
+    /* ✅ Preference inputs */
+    .prefs{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+    .pref-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .pref-row input,
+    .pref-row select{
+      flex:1;
+      min-width:200px;
+    }
+  
+    /* ✅ Grid auto-fit */
+    .grid3{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:8px;
+    }
+  
+    .sig-box{
+      height:60px;
+      border:1px solid #ddd;
+      background:#fff;
+      border-radius:4px;
+    }
+  
+    footer{
+      font-size:12px;
+      color:var(--muted);
+      margin-top:8px;
+      display:flex;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+  
+    /* ✅ Print */
+    @media print{
+      body{background:#fff}
+      .btns, .actions{display:none}
+      .page{box-shadow:none; border:none}
+    }
+  </style>
+  
+</head>
+<body>
+  <div class="page" role="main">
+    <header>
+      <div class="left-logo">
+        <!-- Replace logo.png with official logo if you have permission -->
+        <img src="vikash.jpg" alt="Logo">
+        <div style="font-size:12px;color:var(--muted)">
+          <div>Bihar School Examination Board</div>
+          <div style="font-weight:600">Common Application Form</div>
+        </div>
+      </div>
+
+      <div class="title">
+        <h1>Common Application Form</h1>
+        <h2>For Admission to Intermediate Courses Session 2025-27</h2>
+        <div style="font-size:12px;color:var(--muted)">Bihar School Examination Board, Government of Bihar</div>
+      </div>
+
+      <div class="right-id">
+        <div style="font-weight:700">25J17440564</div>
+        <div style="color:#c33">Intermediate</div>
+      </div>
+    </header>
+
+    <hr>
+
+    <div class="btns actions">
+      <button class="primary" onclick="fillSample()">Fill Sample</button>
+      <button class="muted" onclick="clearForm()">Clear</button>
+      <button class="primary" onclick="submitForm()">Submit to Google Sheet</button>
+      <input id="gsUrl" type="text" placeholder="Paste Google Script URL here" style="flex:1; padding:8px; border:1px solid #ddd; border-radius:6px"/>
+    </div>
+
+    <form id="cafForm">
+
+      <!-- 1. Details of 10th Examination -->
+      <section class="section">
+        <div class="heading">1. Details of 10th Examination / दसवीं परीक्षा का विवरण</div>
+        <div class="body">
+          <div class="row">
+            <div class="col"><label>Board Name / बोर्ड का नाम</label><input name="board_name" type="text" placeholder="BSEB, BIHAR"></div>
+            <div class="col small"><label>Year of Passing / उत्तीर्ण वर्ष</label><input name="passing_year" type="number" placeholder="2025"></div>
+            <div class="col small"><label>Exam Type / परीक्षा का प्रकार</label>
+              <select name="exam_type"><option>Annual</option><option>Supplementary</option></select>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col small"><label>Date of Birth / जन्म तिथि</label><input name="dob" type="date"></div>
+            <div class="col small"><label>Roll Code / रोल कोड</label><input name="roll_code" type="text"></div>
+            <div class="col small"><label>Roll Number / रोल नंबर</label><input name="roll_no" type="text"></div>
+            <div style="width:140px;">
+              <label>Photo / फ़ोटो</label>
+              <div class="photo-box" id="photoBox">No Photo</div>
+              <input id="photoInput" type="file" accept="image/*" style="margin-top:6px"/>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. Applicant's Name -->
+      <section class="section">
+        <div class="heading">2. Applicant's Name / आवेदक का नाम</div>
+        <div class="body">
+          <input name="applicant_name" type="text" placeholder="Applicant's Full Name / आवेदक का पूरा नाम">
+        </div>
+      </section>
+
+      <!-- 3 & 4 Father's & Mother's Name -->
+      <section class="section">
+        <div class="heading">3. Father's Name / पिता का नाम &nbsp; &nbsp; 4. Mother's Name / माता का नाम</div>
+        <div class="body row">
+          <div class="col"><label>Father's Name / पिता का नाम</label><input name="father_name" type="text"></div>
+          <div class="col"><label>Mother's Name / माता का नाम</label><input name="mother_name" type="text"></div>
+        </div>
+      </section>
+
+      <!-- 5. Details of Marks -->
+      <section class="section">
+        <div class="heading">5. Details of Marks / अंक विवरण (10वीं)</div>
+        <div class="body row">
+          <div class="col small"><label>Total Full Marks / अधिकतम अंक</label><input name="max_marks" type="number" placeholder="500"></div>
+          <div class="col small"><label>Total Marks Obtained / प्राप्तांक</label><input name="marks_obtained" type="number"></div>
+          <div class="col small"><label>Percentage / प्रतिशत</label><input name="percentage" type="text"></div>
+        </div>
+      </section>
+
+      <!-- 6. Last attended school record -->
+      <section class="section">
+        <div class="heading">6. Record of educational institution last attended / अंतिम विद्यालय</div>
+        <div class="body">
+          <div class="row">
+            <div class="col"><label>Name of School / विद्यालय का नाम</label><input name="school_name" type="text"></div>
+            <div class="col"><label>Location / पता</label><input name="school_location" type="text"></div>
+            <div class="col small"><label>District / जिला</label><input name="school_district" type="text"></div>
+          </div>
+          <div class="row">
+            <div class="col small"><label>Year of Joining / प्रवेश वर्ष</label><input name="year_join" type="number"></div>
+            <div class="col small"><label>Year of Leaving / वर्ष (छोड़ना)</label><input name="year_leave" type="number"></div>
+            <div class="col small"><label>Passed from KGBV? / क्या KGBV से पार?</label>
+              <select name="kgbv"><option>No</option><option>Yes</option></select>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. Personal Details -->
+      <section class="section">
+        <div class="heading">7. Personal Details / व्यक्तिगत विवरण</div>
+        <div class="body grid3">
+          <div><label>Gender / लिंग</label><select name="gender"><option>Male</option><option>Female</option><option>Other</option></select></div>
+          <div><label>Mother Tongue / मातृभाषा</label><input name="mother_tongue" type="text"></div>
+          <div><label>Nationality / नागरिकता</label><input name="nationality" type="text" value="Indian"></div>
+          <div><label>Religion / धर्म</label><input name="religion" type="text" value=""></div>
+          <div><label>Blood Group / रक्त समूह</label><input name="blood_group" type="text"></div>
+          <div><label>Aadhaar No / आधार नंबर</label><input name="aadhaar" type="text"></div>
+        </div>
+      </section>
+
+      <!-- 8. Address -->
+      <section class="section">
+        <div class="heading">8. Address for Correspondence / पते का विवरण</div>
+        <div class="body">
+          <textarea name="address" placeholder="Permanent address / स्थायी पता"></textarea>
+          <div class="row">
+            <div class="col small"><label>State / राज्य</label><input name="state" type="text" value="Bihar"></div>
+            <div class="col small"><label>District / जिला</label><input name="district" type="text"></div>
+            <div class="col small"><label>PIN / पिन कोड</label><input name="pin" type="number"></div>
+          </div>
+          <div class="row">
+            <div class="col small"><label>Mobile No / मोबाइल</label><input name="mobile" type="text"></div>
+            <div class="col"><label>Email / ई-मेल</label><input name="email" type="text"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9. Reservation -->
+      <section class="section">
+        <div class="heading">9. Reservation Details / आरक्षण विवरण</div>
+        <div class="body grid3">
+          <div><label>General / सामान्य</label><select name="res_general"><option>No</option><option>Yes</option></select></div>
+          <div><label>SC / अनुसूचित जाति</label><select name="res_sc"><option>No</option><option>Yes</option></select></div>
+          <div><label>ST / अनुसूचित जनजाति</label><select name="res_st"><option>No</option><option>Yes</option></select></div>
+          <div><label>OBC / पिछड़ा वर्ग</label><select name="res_obc"><option>No</option><option>Yes</option></select></div>
+          <div><label>EBC / अत्यंत पिछड़ा वर्ग</label><select name="res_ebc"><option>No</option><option>Yes</option></select></div>
+          <div><label>WBC / महिला पिछड़ा</label><select name="res_wbc"><option>No</option><option>Yes</option></select></div>
+        </div>
+      </section>
+
+      <!-- 10. Options / College Preferences -->
+      <section class="section">
+        <div class="heading">10. Option(s) / Choice(s) Details / विद्यालय/कॉलेज विकल्प</div>
+        <div class="body prefs">
+          <div class="pref-row"><input name="pref1" placeholder="FIRST - College Name & Code"><select name="pref1_stream"><option>Science</option><option>Commerce</option><option>Arts</option></select></div>
+          <div class="pref-row"><input name="pref2" placeholder="SECOND - College Name & Code"><select name="pref2_stream"><option>Science</option><option>Commerce</option><option>Arts</option></select></div>
+          <div class="pref-row"><input name="pref3" placeholder="THIRD - College Name & Code"><select name="pref3_stream"><option>Science</option><option>Commerce</option><option>Arts</option></select></div>
+          <div class="pref-row"><input name="pref4" placeholder="FOURTH - College Name & Code"><select name="pref4_stream"><option>Science</option><option>Commerce</option><option>Arts</option></select></div>
+          <div class="pref-row"><input name="pref5" placeholder="FIFTH - College Name & Code"><select name="pref5_stream"><option>Science</option><option>Commerce</option><option>Arts</option></select></div>
+        </div>
+      </section>
+
+      <!-- Declaration -->
+      <section class="section">
+        <div class="heading">Declaration / घोषणा</div>
+        <div class="body">
+          <p style="color:var(--muted); font-size:13px">I hereby declare that the information given above is true to the best of my knowledge and belief. /
+          उपर्युक्त विवरण मेरे ज्ञानानुसार सत्य है।</p>
+
+          <div class="row">
+            <div class="col"><label>Candidate's Signature / अभ्यर्थी के हस्ताक्षर</label><div class="sig-box"></div></div>
+            <div class="col"><label>Parent/Guardian Signature / अभिभावक के हस्ताक्षर</label><div class="sig-box"></div></div>
+            <div class="col small"><label>Date / दिनांक</label><input name="sig_date" type="date"></div>
+          </div>
+        </div>
+      </section>
+
+    </form>
+
+    <footer>
+      <div>Note: Fill official form on OFSS portal. यह केवल नमूना फ़ॉर्म है।</div>
+      <div style="font-size:12px;color:var(--muted)">Designed by Assistant</div>
+    </footer>
+  </div>
+
+<script>
+/* ===== helpers ===== */
+function el(q){return document.querySelector(q)}
+function dataURLfromFile(file){
+  return new Promise((res,rej)=>{
+    const r = new FileReader();
+    r.onload = e => res(e.target.result);
+    r.onerror = e => rej(e);
+    r.readAsDataURL(file);
+  });
+}
+
+/* photo preview */
+const photoInput = el('#photoInput'), photoBox = el('#photoBox');
+photoInput.addEventListener('change', async (ev) => {
+  const f = ev.target.files[0];
+  if(!f) { photoBox.textContent = 'No Photo'; return; }
+  // preview
+  const url = URL.createObjectURL(f);
+  photoBox.innerHTML = '<img src="'+url+'" style="max-width:100%;max-height:100%;">';
+});
+
+/* fill sample */
+function fillSample(){
+  const form = document.getElementById('cafForm');
+  form.applicant_name.value = "Sanaullah";
+  form.father_name.value = "Abdur Rahman";
+  form.mother_name.value = "Sultana Sahn";
+  form.board_name.value = "BSEB, BIHAR";
+  form.passing_year.value = "2025";
+  form.roll_code.value = "13002";
+  form.roll_no.value = "2500152";
+  form.dob.value = "2007-04-02";
+  form.max_marks.value = "500"; form.marks_obtained.value = "341"; form.percentage.value = "68.2%";
+  form.school_name.value = "National High School Kishanganj";
+  form.school_location.value = "Subhash Palli Kishanganj";
+  form.school_district.value = "Kishanganj";
+  form.mobile.value = "7646055737";
+  form.email.value = "smsdanaullah348@gmail.com";
+  form.aadhaar.value = "XXXXXXXX3346";
+  form.pref1.value = "B K D ZILA SCHOOL DARBHANGA"; form.pref1_stream.value="Science";
+  document.getElementById('gsUrl').value = "PASTE_GOOGLE_SCRIPT_URL_HERE";
+}
+
+/* clear form */
+function clearForm(){ document.getElementById('cafForm').reset(); photoBox.textContent = 'No Photo'; }
+
+/* submit to Google Apps Script (JSON) */
+async function submitForm(){
+  try{
+    const url = document.getElementById('gsUrl').value.trim();
+    if(!url){ alert('Please paste your Google Script Web App URL in the box above.'); return; }
+
+    const formEl = document.getElementById('cafForm');
+    const formData = new FormData(formEl);
+    const obj = {};
+
+    // convert fields
+    for (const [k,v] of formData.entries()){
+      obj[k] = v;
+    }
+
+    // include photo as base64 (optional)
+    const f = photoInput.files[0];
+    if(f){
+      // resize could be added client-side to reduce size; here we include raw base64
+      const b64 = await dataURLfromFile(f);
+      obj.photo_base64 = b64; // caution: can be large
+      obj.photo_name = f.name;
+    }
+
+    // add timestamp
+    obj.submitted_at = new Date().toISOString();
+
+    // POST JSON
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(obj)
+    });
+
+    if(res.ok){
+      const j = await res.json().catch(()=>({status:'ok'}));
+      alert('Form submitted successfully ✅');
+    } else {
+      alert('Submission failed — server returned status ' + res.status);
+      console.error(await res.text());
+    }
+  } catch(err){
+    console.error(err);
+    alert('Error while submitting. Check console.');
+  }
+}
+</script>
+</body>
+</html>

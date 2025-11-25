@@ -1,0 +1,68 @@
+:root{
+    --bg:#ffffff;
+    --card:#ffffff;
+    --muted:#6b7280;
+    --accent:#2563eb;
+    --radius:8px;
+  }
+  
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:Inter, Arial, sans-serif;
+    color:#0f172a;
+    background:#fff;
+    display:flex;
+    justify-content:center;
+    padding:0;
+  }
+  
+  /* A4 page setup */
+  .page{
+    width:210mm;
+    min-height:297mm;
+    padding:20mm;
+    margin:auto;
+    background:green;
+    box-shadow:0 0 5px rgba(0,0,0,0.1);
+  }
+  
+  @page{
+    size:A4;
+    margin:20mm;
+  }
+  
+  .reg-form{
+    width:100%;
+  }
+  
+  .reg-form h1{margin:0 0 18px 0; font-size:1.5rem; text-align:center;}
+  .row{margin-bottom:12px}
+  .row label{display:block; margin-bottom:4px; font-weight:600; font-size:0.95rem}
+  .row input, .row select, .row textarea{
+    width:100%;
+    padding:8px 10px;
+    border-radius:6px;
+    border:1px solid #ccc;
+    font-size:0.9rem;
+  }
+  
+  .two-col{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+  
+  .actions{display:flex; justify-content:flex-end; gap:12px; align-items:center; margin-top:20px;}
+  .btn{padding:8px 14px; border-radius:6px; font-weight:600; border:0; cursor:pointer}
+  .btn-primary{background:var(--accent); color:white}
+  .btn-secondary{background:transparent; border:1px solid #ccc}
+  
+  .note{color:var(--muted); font-size:0.85rem; margin-top:10px}
+  
+  .checkbox-inline input{margin-right:6px}
+  
+  .subjects{padding:10px; border-radius:6px; border:1px dashed #ccc}
+  .subjects legend{font-weight:700}
+  .subjects label{display:inline-block; margin-right:12px; font-size:0.9rem}
+  
+  @media print{
+    body{background:#fff;}
+    .page{box-shadow:none; margin:0;}
+  }

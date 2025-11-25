@@ -1,0 +1,151 @@
+
+<!-- Single-page Course System: List + Details + Apply -->
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>College Courses — Single Page</title>
+<style>
+  :root{
+    --accent:#0b5394;
+    --muted:#555;
+    --card-bg:#fff;
+    font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif;
+  }
+  body{background:#f4f6f9;margin:0;padding:24px;display:flex;justify-content:center;}
+  .container{width:100%;max-width:1100px;}
+  header{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+  header h1{margin:0;color:var(--accent);font-size:20px}
+  nav{margin-bottom:18px;display:flex;gap:8px;flex-wrap:wrap}
+  .chip{padding:8px 12px;border-radius:20px;background:#fff;border:1px solid #e0e6ef;cursor:pointer;font-weight:600;color:var(--accent)}
+  .chip.active{background:var(--accent);color:#fff}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+  .card{background:var(--card-bg);padding:12px;border-radius:8px;box-shadow:0 6px 18px rgba(13,38,77,0.06);border:1px solid #eef2fb;cursor:pointer;}
+  .card h3{margin:0 0 6px 0;font-size:16px;color:#073b63}
+  .meta{font-size:13px;color:var(--muted);margin-bottom:8px}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+  .tag{background:#eef6ff;color:var(--accent);padding:4px 8px;border-radius:999px;font-size:12px}
+  .section-title{margin-top:18px;margin-bottom:8px;font-size:18px;color:#0b3b66}
+  #details,#formBox{display:none;background:#fff;padding:20px;border-radius:8px;box-shadow:0 5px 15px rgba(0,0,0,0.1);}
+  .btn{display:inline-block;margin-top:20px;padding:10px 20px;background:#0b5394;color:#fff;text-decoration:none;border-radius:6px;cursor:pointer;}
+  .field{margin-bottom:10px;display:flex;flex-direction:column}
+  label{margin-bottom:4px;font-weight:600}
+  input,select{padding:8px;border:1px solid #aaa;border-radius:4px}
+</style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Courses — U.H.S Konahara</h1>
+    </header>
+
+    <!-- CATEGORY -->
+    <nav id="cats">
+      <div class="chip active" data-cat="all">All</div>
+      <div class="chip" data-cat="intermediate">Intermediate</div>
+      <div class="chip" data-cat="ug">UG</div>
+      <div class="chip" data-cat="pg">PG</div>
+      <div class="chip" data-cat="professional">Professional</div>
+      <div class="chip" data-cat="vocational">Vocational</div>
+      <div class="chip" data-cat="certificate">Certificate</div>
+    </nav>
+
+    <!-- LIST -->
+    <div id="list"></div>
+
+    <!-- DETAILS -->
+    <div id="details"></div>
+
+    <!-- FORM -->
+    <div id="formBox"></div>
+
+  </div>
+
+<script>
+const COURSES = [
+  {id:1, cat:'intermediate', title:'Intermediate — Science', duration:'2 years', eligibility:'10th pass', fee:'₹6,000/yr', desc:'PCM for engineering/medical'},
+  {id:2, cat:'ug', title:'BA — Hindi / History', duration:'3 years', eligibility:'12th pass', fee:'₹10,000/yr', desc:'Arts degree'},
+  {id:3, cat:'pg', title:'MA — Hindi', duration:'2 years', eligibility:'BA pass', fee:'₹15,000/yr', desc:'Hindi PG'},
+  {id:4, cat:'professional', title:'BCA', duration:'3 years', eligibility:'12th pass', fee:'₹18,000/yr', desc:'Computer Applications'},
+  {id:5, cat:'vocational', title:'Diploma — Paramedical', duration:'1 year', eligibility:'10+2 pass', fee:'₹7,000/yr', desc:'Paramedical training'},
+  {id:6, cat:'certificate', title:'Certificate — Office Mgmt', duration:'6 months', eligibility:'10th', fee:'₹3,000', desc:'Office course'}
+];
+
+function showList(filter='all'){
+  document.getElementById('details').style.display='none';
+  document.getElementById('formBox').style.display='none';
+  const wrap = document.getElementById('list');
+  wrap.style.display='block';
+  wrap.innerHTML='';
+  let items = COURSES.filter(c=>filter==='all'?true:c.cat===filter);
+  if(!items.length){wrap.innerHTML='No courses';return;}
+
+  const section=document.createElement('div');
+  const grid=document.createElement('div'); grid.className='grid';
+  items.forEach(c=>{
+    let card=document.createElement('div'); card.className='card';
+    card.innerHTML=`<h3>${c.title}</h3>
+      <div class='meta'>${c.duration} · ${c.eligibility} · ${c.fee}</div>
+      <div>${c.desc}</div>
+      <div class='tags'><div class='tag'>${c.cat}</div><div class='tag'>View</div></div>`;
+    card.onclick=()=>showDetails(c.id);
+    grid.appendChild(card);
+  });
+  section.appendChild(grid);
+  wrap.appendChild(section);
+}
+
+function showDetails(id){
+  const data=COURSES.find(x=>x.id===id);
+  if(!data) return;
+  document.getElementById('list').style.display='none';
+  const box=document.getElementById('details');
+  box.style.display='block';
+  box.innerHTML=`
+    <h2>${data.title}</h2>
+    <p><b>Duration:</b> ${data.duration}</p>
+    <p><b>Eligibility:</b> ${data.eligibility}</p>
+    <p><b>Fee:</b> ${data.fee}</p>
+    <p>${data.desc}</p>
+    <button class='btn' onclick='showForm(${id})'>Apply Now</button>
+    <button class='btn' style='background:#777' onclick='showList()'>Back</button>
+  `;
+}
+
+function showForm(id){
+  const data=COURSES.find(x=>x.id===id);
+  document.getElementById('details').style.display='none';
+  const form=document.getElementById('formBox');
+  form.style.display='block';
+  form.innerHTML=`
+    <h2>Apply — ${data.title}</h2>
+    <div class='field'>
+      <label>Full Name</label>
+      <input type='text'/>
+    </div>
+    <div class='field'>
+      <label>Aadhaar</label>
+      <input type='text'/>
+    </div>
+    <div class='field'>
+      <label>Upload Photo</label>
+      <input type='file' accept='image/*'/>
+    </div>
+    <button class='btn'>Submit</button>
+    <button class='btn' style='background:#777' onclick='showList()'>Back</button>
+  `;
+}
+
+document.querySelectorAll('.chip').forEach(chip=>{
+  chip.onclick=()=>{
+    document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+    chip.classList.add('active');
+    showList(chip.dataset.cat);
+  }
+});
+
+showList();
+</script>
+</body>
+</html>

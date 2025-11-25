@@ -1,0 +1,194 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --accent: #ff8c00;
+  --text: #222;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: var(--text);
+  background: #f3f6fb;
+}
+
+/* ===============================
+   NAVBAR
+=============================== */
+.navbar {
+  height: 60px;
+  width: 100%;
+  background-color: var(--accent);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 10;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.brand-text .title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-left: 0; /* fixed margin hata diya */
+}
+
+/* NAV LINKS */
+nav {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-left: 0; /* fixed margin hata diya */
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ===============================
+   SECOND NAVBAR
+=============================== */
+.sec-nevbar {
+  height: 50px;
+  width: 100%;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  background-color: aqua;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px; /* mobile-friendly gap */
+  z-index: 9;
+  flex-wrap: wrap; /* mobile me wrap hoga */
+}
+
+/* ===============================
+   HERO / THIRD SECTION
+=============================== */
+.th-navbar {
+  background-image: url("collage.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 70vh;
+  width: 100%;
+  margin-top: 110px; /* navbar + sec-navbar height */
+}
+
+/* ===============================
+   DROPDOWN MENU
+=============================== */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background-color: #3498db;
+  color: white;
+  padding: 10px 16px;
+  font-size: 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.dropbtn:hover {
+  background-color: #2980b9;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 180px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.15);
+  border-radius: 6px;
+  margin-top: 5px;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: #333;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  border-radius: 6px;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* ===============================
+   RESPONSIVE FOR MOBILE / TABLET
+=============================== */
+@media (max-width: 768px) {
+  /* Navbar links vertical */
+  nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* Second navbar vertical */
+  .sec-nevbar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* Hero margin adjust */
+  .th-navbar {
+    margin-top: 120px;
+  }
+
+  /* Dropdown stack properly */
+  .dropdown-content {
+    position: static;
+    box-shadow: none;
+    background-color: rgba(255,255,255,0.95);
+    display: none;
+  }
+
+  .dropdown:hover .dropdown-content,
+  .dropdown:focus-within .dropdown-content {
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  .sec-nevbar {
+    gap: 5px;
+    font-size: 0.9rem;
+  }
+}

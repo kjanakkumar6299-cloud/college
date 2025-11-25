@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BSEB Class 11 Registration Form 2025</title>
+  <link rel="stylesheet" href="reji11.css">
+</head>
+<body>
+
+  <div class="a4-page">
+    <div class="form-header">
+      <img src="vikash.jpg" class="logo" alt="BSEB Logo">
+      <div>
+        <h2>BIHAR SCHOOL EXAMINATION BOARD, PATNA</h2>
+        <p><strong>Online Registration Form – Class XI (Session 2025–27)</strong></p>
+      </div>
+    </div>
+
+    <form id="registrationForm">
+      <h3>🔹 Student Information</h3>
+      <div class="grid-3">
+        <div><label>Full Name:</label><input type="text" required></div>
+        <div><label>Father’s Name:</label><input type="text" required></div>
+        <div><label>Mother’s Name:</label><input type="text" required></div>
+      </div>
+
+      <div class="grid-3">
+        <div><label>Date of Birth:</label><input type="date" required></div>
+        <div><label>Gender:</label>
+          <select required>
+            <option value="">-- Select Gender --</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Transgender</option>
+          </select>
+        </div>
+        <div><label>Religion:</label>
+          <select required>
+            <option value="">-- Select Religion --</option>
+            <option>Hindu</option>
+            <option>Muslim</option>
+            <option>Sikh</option>
+            <option>Christian</option>
+            <option>Jain</option>
+            <option>Buddhist</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <div><label>Category:</label>
+          <select required>
+            <option value="">-- Select Category --</option>
+            <option>General</option>
+            <option>OBC</option>
+            <option>SC</option>
+            <option>ST</option>
+          </select>
+        </div>
+        <div><label>Nationality:</label><input type="text" value="Indian" required></div>
+        <div><label>Aadhar Number:</label><input type="text" maxlength="12" pattern="\d{12}" required></div>
+      </div>
+
+      <h3>🔹 Contact Details</h3>
+      <div class="grid-2">
+        <div><label>Mobile Number:</label><input type="text" maxlength="10" pattern="\d{10}" required></div>
+        <div><label>Email ID:</label><input type="email" placeholder="example@gmail.com"></div>
+      </div>
+
+      <div><label>Address:</label><textarea required></textarea></div>
+
+      <h3>🔹 School Information</h3>
+      <div class="grid-3">
+        <div><label>School Code:</label><input type="text" required></div>
+        <div><label>School Name:</label><input type="text" required></div>
+        <div><label>District:</label><input type="text" required></div>
+      </div>
+
+      <div class="grid-3">
+        <div><label>10th Roll Number:</label><input type="text" required></div>
+        <div><label>Passing Year:</label><input type="text" required></div>
+        <div><label>Board Name:</label><input type="text" required></div>
+      </div>
+
+      <h3>🔹 Stream & Subject Selection</h3>
+      <div class="form-section">
+        <label>Select Stream:</label>
+        <select id="streamSelect" required>
+          <option value="">-- Choose Stream --</option>
+          <option value="science">Science</option>
+          <option value="commerce">Commerce</option>
+          <option value="arts">Arts</option>
+        </select>
+      </div>
+
+      <div class="note">Select exactly <strong>5 subjects</strong> below based on your stream.</div>
+
+      <!-- SCIENCE -->
+      <div id="scienceSubjects" class="subject-section">
+        <h4>Science Subjects</h4>
+        <div class="checkbox-grid">
+          <label><input type="checkbox" name="science"> Physics</label>
+          <label><input type="checkbox" name="science"> Chemistry</label>
+          <label><input type="checkbox" name="science"> Mathematics</label>
+          <label><input type="checkbox" name="science"> Biology</label>
+          <label><input type="checkbox" name="science"> English</label>
+          <label><input type="checkbox" name="science"> Hindi</label>
+          <label><input type="checkbox" name="science"> Computer Science</label>
+          <label><input type="checkbox" name="science"> Environmental Science</label>
+        </div>
+      </div>
+
+      <!-- COMMERCE -->
+      <div id="commerceSubjects" class="subject-section">
+        <h4>Commerce Subjects</h4>
+        <div class="checkbox-grid">
+          <label><input type="checkbox" name="commerce"> Accountancy</label>
+          <label><input type="checkbox" name="commerce"> Business Studies</label>
+          <label><input type="checkbox" name="commerce"> Economics</label>
+          <label><input type="checkbox" name="commerce"> Entrepreneurship</label>
+          <label><input type="checkbox" name="commerce"> English</label>
+          <label><input type="checkbox" name="commerce"> Hindi</label>
+          <label><input type="checkbox" name="commerce"> Mathematics</label>
+          <label><input type="checkbox" name="commerce"> Informatics Practices</label>
+        </div>
+      </div>
+
+      <!-- ARTS -->
+      <div id="artsSubjects" class="subject-section">
+        <h4>Arts Subjects</h4>
+        <div class="checkbox-grid">
+          <label><input type="checkbox" name="arts"> History</label>
+          <label><input type="checkbox" name="arts"> Political Science</label>
+          <label><input type="checkbox" name="arts"> Geography</label>
+          <label><input type="checkbox" name="arts"> Economics</label>
+          <label><input type="checkbox" name="arts"> Sociology</label>
+          <label><input type="checkbox" name="arts"> Psychology</label>
+          <label><input type="checkbox" name="arts"> English</label>
+          <label><input type="checkbox" name="arts"> Hindi</label>
+          <label><input type="checkbox" name="arts"> Home Science</label>
+          <label><input type="checkbox" name="arts"> Philosophy</label>
+        </div>
+      </div>
+
+      <div class="declaration">
+        <p><strong>Declaration:</strong> I hereby declare that all information filled above is true to the best of my knowledge.</p>
+        <input type="text" placeholder="Signature of Student" required>
+      </div>
+
+      <button type="submit">Submit Registration</button>
+    </form>
+  </div>
+
+  <script>
+    const streamSelect = document.getElementById('streamSelect');
+    const science = document.getElementById('scienceSubjects');
+    const commerce = document.getElementById('commerceSubjects');
+    const arts = document.getElementById('artsSubjects');
+
+    streamSelect.addEventListener('change', () => {
+      science.style.display = 'none';
+      commerce.style.display = 'none';
+      arts.style.display = 'none';
+
+      if (streamSelect.value === 'science') science.style.display = 'block';
+      else if (streamSelect.value === 'commerce') commerce.style.display = 'block';
+      else if (streamSelect.value === 'arts') arts.style.display = 'block';
+    });
+
+    // limit to 5 subjects
+    function limitSubjects(name) {
+      const checkboxes = document.querySelectorAll(`input[name="${name}"]`);
+      checkboxes.forEach(cb => {
+        cb.addEventListener('change', () => {
+          const checked = [...checkboxes].filter(c => c.checked);
+          if (checked.length > 5) {
+            alert("You can select only 5 subjects.");
+            cb.checked = false;
+          }
+        });
+      });
+    }
+
+    limitSubjects('science');
+    limitSubjects('commerce');
+    limitSubjects('arts');
+  </script>
+</body>
+</html>

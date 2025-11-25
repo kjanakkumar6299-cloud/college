@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>U.H.S College Konahara — Modern Responsive</title>
+
+  <!-- Optional: Change or remove Google Fonts if offline -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --brand:#0b1120;
+      --accent:#ffcc33;
+      --muted:#6b7a90;
+      --card:#ffffff;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color:#0b1a36; background:#f6f8fb;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+
+    /* ---------- NAVBAR ---------- */
+    .navbar{
+      position:fixed; inset:0 0 auto 0; z-index:1200;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:12px 20px; gap:12px;
+      background:linear-gradient(180deg, rgba(11,17,32,0.96), rgba(11,17,32,0.92));
+      color:#fff; box-shadow:0 6px 20px rgba(2,8,23,0.35);
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+    }
+    .brand img{height:48px; width:48px; object-fit:cover; border-radius:8px; border:2px solid #fff2;}
+    .brand .title{font-weight:700; font-size:18px; letter-spacing:0.2px}
+    nav ul{display:flex; gap:18px; list-style:none; align-items:center}
+    nav a{color:#fff; text-decoration:none; font-weight:600; font-size:15px}
+    nav a:hover{color:var(--accent)}
+
+    /* mobile menu toggle */
+    .hamburger{display:none; width:44px; height:44px; align-items:center; justify-content:center; border-radius:10px; cursor:pointer}
+    .hamburger .bar{width:22px;height:2px;background:#fff;margin:4px 0;border-radius:2px; transition:transform .25s ease}
+
+    /* dropdown */
+    .dropdown{position:relative}
+    .dropdown-menu{
+      position:absolute; top:calc(100% + 10px); left:0; min-width:200px;
+      background:var(--brand); color:#fff; border-radius:8px; padding:8px 6px; display:none;
+      box-shadow:0 8px 30px rgba(3,10,25,0.45);
+    }
+    .dropdown-menu a{display:block;padding:8px 12px;color:#fff;text-decoration:none}
+    .dropdown:hover .dropdown-menu{display:block}
+
+    /* ---------- SLIDER / HERO ---------- */
+    .slider{position:relative; margin-top:72px; overflow:hidden}
+    .slides{position:relative; width:100%; height:68vh; min-height:380px}
+    .slide{position:absolute; inset:0; opacity:0; transition:opacity .9s ease; display:flex; align-items:center; justify-content:center}
+    .slide img{width:100%;height:100%;object-fit:cover; filter:brightness(.55)}
+    .slide.active{opacity:1; position:relative}
+    .slider-caption{
+      position:absolute; z-index:6; left:50%; transform:translateX(-50%);
+      bottom:18%; text-align:center; color:#fff; max-width:1100px;
+    }
+    .slider-caption h1{font-size:40px; color:var(--accent); margin-bottom:12px; font-weight:800}
+    .slider-caption p{font-size:16px; color:#fff; margin-bottom:14px}
+    .cta{
+      display:inline-block; background:var(--accent); color:var(--brand); padding:12px 18px; border-radius:8px; text-decoration:none; font-weight:700;
+      box-shadow:0 10px 30px rgba(255,204,51,0.12);
+    }
+
+    /* arrows */
+    .arrow{
+      position:absolute; top:50%; transform:translateY(-50%); z-index:8; background:rgba(3,6,16,0.45);
+      border-radius:8px; width:46px; height:46px; display:flex; align-items:center; justify-content:center; cursor:pointer;
+    }
+    .arrow.left{left:18px}
+    .arrow.right{right:18px}
+    .arrow svg{fill:#fff;width:20px;height:20px}
+
+    /* dots */
+    .dots{position:absolute; bottom:10px; left:50%; transform:translateX(-50%); display:flex; gap:8px; z-index:8}
+    .dot{width:11px;height:11px;border-radius:50%;background:rgba(255,255,255,0.45);cursor:pointer}
+    .dot.active{background:var(--accent); box-shadow:0 6px 18px rgba(11,17,32,0.28)}
+
+    /* ---------- MAIN CONTENT ---------- */
+    main{max-width:1200px;margin:30px auto;padding:24px;}
+
+/* About + quick cards */
+    .about{display:flex; gap:24px; align-items:center; margin-top:8px; flex-wrap:wrap}
+    .about .text{flex:1; min-width:260px}
+    .about .image{flex:1; min-width:260px; border-radius:12px; overflow:hidden; box-shadow:0 10px 30px rgba(11,17,32,0.06)}
+    .about .image img{width:100%; height:100%; object-fit:cover; display:block}
+
+    .cards{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:22px}
+    .card{background:var(--card); padding:18px; border-radius:12px; box-shadow:0 10px 30px rgba(28,40,70,0.06); border-top:4px solid var(--accent)}
+    .card h3{margin-bottom:8px; color:var(--brand)}
+    .card p{color:var(--muted); font-size:14px}
+
+/* Notices + Events */
+    .two-col{display:grid; grid-template-columns:2fr 1fr; gap:18px; margin-top:26px}
+    .notice{background:#fff;padding:16px;border-radius:10px; box-shadow:0 8px 20px rgba(17,24,39,0.04)}
+    .notice ul{list-style:disc;padding-left:18px;color:var(--muted)}
+    .events .event{background:#fff;padding:12px;border-radius:10px;margin-bottom:10px; box-shadow:0 4px 16px rgba(17,24,39,0.03)}
+
+    /* Admission CTA */
+    .admission-cta{display:flex; gap:12px; align-items:center; margin-top:24px; flex-wrap:wrap}
+    .admission-cta .lead{font-weight:700; color:var(--brand)}
+    .admission-cta .btn{background:var(--brand); color:#fff; padding:10px 14px; border-radius:8px; text-decoration:none}
+
+/* ---------- FOOTER ---------- */
+    footer{background:var(--brand); color:#fff; margin-top:28px;padding:32px 20px;border-top:4px solid var(--accent)}
+    .footer-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:18px; max-width:1200px; margin:0 auto}
+    .footer-grid h4{color:var(--accent); margin-bottom:10px}
+    .socials a{display:inline-block;margin-right:8px;text-decoration:none;color:#fff;font-weight:700}
+
+/* ---------- ADMISSION MODAL ---------- */
+    .modal-back{position:fixed; inset:0; background:rgba(2,6,23,0.6); display:none; align-items:center; justify-content:center; z-index:1400}
+    .modal{background:#fff; padding:18px; width:96%; max-width:520px; border-radius:10px}
+    .modal h3{margin-bottom:12px}
+    .form-row{display:flex; gap:10px; margin-bottom:10px}
+    .form-row input, .form-row select, .modal input[type="text"], .modal input[type="email"]{flex:1;padding:10px;border-radius:8px;border:1px solid #e6eaf2}
+    .modal .actions{display:flex; gap:10px; justify-content:flex-end; margin-top:12px}
+    .close-btn{background:transparent;border:0;color:var(--muted);cursor:pointer}
+
+/* ---------- RESPONSIVE ---------- */
+    @media (max-width:980px){
+      .cards{grid-template-columns:repeat(2,1fr)}
+      .footer-grid{grid-template-columns:repeat(2,1fr)}
+      .about{flex-direction:column-reverse}
+      .two-col{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width:720px){
+      nav ul{display:none}
+      .hamburger{display:flex}
+      .slider-caption h1{font-size:26px}
+      .slider-caption p{font-size:14px}
+      .slides{height:58vh}
+      .cards{grid-template-columns:1fr}
+      .two-col{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr}
+    }
+    @media (max-width:420px){
+      .slide img{filter:brightness(.5)}
+      .slider-caption{padding:0 12px}
+      .slider-caption h1{font-size:20px}
+      .brand .title{font-size:15px}
+    }
+
+    /* small utility */
+    .muted{color:var(--muted)}
+    .mb-8{margin-bottom:8px}
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar" role="banner">
+    <div class="brand" aria-label="Brand">
+      <img src="jk.png" alt="College logo" id="logo">
+      <div>
+        <div class="title">U.H.S College Konahara</div>
+        <div class="muted" style="font-size:12px">Established 1995 • Quality Education</div>
+      </div>
+    </div>
+
+    <nav role="navigation" aria-label="Main Navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li class="dropdown"><a href="add2.html">Admission ▾</a>
+          <div class="dropdown-menu" role="menu" aria-hidden="true">
+            <a href="#apply">Apply Online</a>
+            <a href="rbuut.html">Registration</a>
+            <a href="#payment">Payment</a>
+          </div>
+        </li>
+        <li><a href="kye.html">Courses</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="hamburger" aria-label="Open Menu" id="hamburgerBtn">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+  </header>
+
+  <!-- SLIDER -->
+  <section class="slider" id="home" aria-label="Campus slider">
+    <!-- Slide 1 -->
+    <div class="slide active" data-index="0">
+      <img src="collage.jpg" alt="Campus view 1">
+    </div>
+
+    <!-- Slide 2 (duplicate or replace with another image if you have) -->
+    <div class="slide" data-index="1">
+      <img src="ai.jpg" alt="Campus view 2">
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="slide" data-index="2">
+      <img src="college2.jpg" alt="Campus view 3">
+    </div>
+
+    <!-- Caption and CTA (center) -->
+    <div class="slider-caption" role="region" aria-label="Hero content">
+      <h1>Empowering Students • Building Futures</h1>
+      <p class="mb-8">High-quality education, modern campus, and student-focused learning for a brighter tomorrow.</p>
+      <a class="cta" href="#apply" id="applyNowBtn">Apply Now</a>
+    </div>
+
+    <!-- Arrows -->
+    <div class="arrow left" id="prevBtn" aria-hidden="false" title="Previous">
+      <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+    </div>
+    <div class="arrow right" id="nextBtn" aria-hidden="false" title="Next">
+      <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+    </div>
+
+    <!-- Dots -->
+    <div class="dots" id="dots"></div>
+  </section>
+
+
+
+<!-- ABOUT SECTION -->
+<section id="about" class="about" style="padding:40px 20px;background:#fff">
+    <div style="max-width:1200px;margin:auto;display:flex;gap:20px;flex-wrap:wrap;align-items:center">
+  
+      <div style="flex:1;min-width:260px">
+        <h2 style="margin-bottom:10px;color:#0b1120">About U.H.S College Konahara</h2>
+        <p style="color:#555;line-height:1.6">
+          U.H.S College Konahara, established in 1995, provides high-quality education 
+          with modern campus facilities, experienced faculty, and career-focused programs.
+          हमारा उद्देश्य छात्रों को skill-based learning और bright future देना है।
+        </p>
+      </div>
+  
+      <div style="flex:1;min-width:260px">
+        <img src="collage.jpg" alt="About image"
+        style="width:100%;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.1)">
+      </div>
+  
+    </div>
+  </section>
+  
+
+
+
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <!-- About -->
+    <section id="about" class="about" aria-labelledby="aboutHeading">
+      <div class="text">
+        <h2 id="aboutHeading">About U.H.S College Konahara</h2>
+        <p class="muted mb-8">U.H.S College Konahara is a premier institution established in 1995. We provide transformative education, skilled faculty and modern facilities to prepare students for successful careers.</p>
+        <div class="admission-cta">
+          <div class="lead">Admissions open for 2025–26</div>
+          <a class="btn" href="#apply" id="openApply">Apply Now</a>
+          <a class="btn" href="kye.html" style="background:var(--accent); color:var(--brand">View Courses</a>
+        </div>
+      </div>
+      <div class="image"><img src="hospital.jpg" alt="Campus photo"></div>
+    </section>
+
+    <!-- Cards -->
+    <section class="cards" aria-label="Highlights">
+      <div class="card">
+        <h3>Experienced Faculty</h3>
+        <p>Our teachers are industry-experienced and student-friendly, focusing on both academics and skills.</p>
+      </div>
+      <div class="card">
+        <h3>Modern Infrastructure</h3>
+        <p>Smart classrooms, labs, library and digital learning tools for an enriched experience.</p>
+      </div>
+      <div class="card">
+        <h3>Career Support</h3>
+        <p>Placement support, career counselling and practical workshops for employability.</p>
+      </div>
+    </section>
+
+    <!-- Notices + Events -->
+    <section class="two-col" aria-label="Notices and events">
+      <div class="notice" id="notices">
+        <h3>Latest Notices</h3>
+        <ul>
+          <li>Admissions for 2025–26 are open. Apply before deadline.</li>
+          <li>Semester exams schedule released — check the noticeboard.</li>
+          <li>Scholarship registration form live now.</li>
+        </ul>
+      </div>
+      <aside class="events" aria-label="Upcoming events">
+        <h3>Upcoming Dates</h3>
+        <div class="event"><strong>Admission Deadline:</strong> 15 Dec 2025</div>
+        <div class="event"><strong>Orientation:</strong> 02 Jan 2026</div>
+        <div class="event"><strong>Annual Sports:</strong> 20 Jan 2026</div>
+      </aside>
+    </section>
+
+    <!-- Courses preview -->
+    <section id="courses" style="margin-top:18px">
+      <h3>Popular Programs</h3>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:14px; margin-top:12px">
+        <div style="background:#fff;padding:12px;border-radius:10px;box-shadow:0 6px 20px rgba(11,17,32,0.04)"><strong>BCA</strong><p class="muted">3-year professional program</p></div>
+        <div style="background:#fff;padding:12px;border-radius:10px;box-shadow:0 6px 20px rgba(11,17,32,0.04)"><strong>BBA</strong><p class="muted">Business & Management</p></div>
+        <div style="background:#fff;padding:12px;border-radius:10px;box-shadow:0 6px 20px rgba(11,17,32,0.04)"><strong>Intermediate Science</strong><p class="muted">Science stream with labs</p></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div class="footer-grid" role="contentinfo">
+      <div>
+        <h4>U.H.S College Konahara</h4>
+        <p class="muted">Quality education since 1995. Empowering students with skills and values.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <a href="about2.html" style="display:block;color:#fff;margin-bottom:6px;text-decoration:none">About</a>
+        <a href="kye.html" style="display:block;color:#fff;margin-bottom:6px;text-decoration:none">Courses</a>
+        <a href="uttam.html" style="display:block;color:#fff;margin-bottom:6px;text-decoration:none">Admissions</a>
+
+        
+      </div>
+      <div>
+        <h4>Policies</h4>
+        <a href="privesy.html" style="display:block;color:#fff;margin-bottom:6px;text-decoration:none">Privacy Policy</a>
+        <a href="anti.html" style="display:block;color:#fff;margin-bottom:6px;text-decoration:none">Anti-Ragging</a>
+      </div>
+      <div>
+        <h4>Follow Us</h4>
+        <div class="socials">
+          <a href="https://www.facebook.com/share/1AVj1vaubR/" target="_blank" rel="noopener">Facebook</a><br>
+          <a href="https://www.instagram.com/jk_singh231" target="_blank" rel="noopener">Instagram</a><br>
+          <a href="https://www.linkedin.com/in/janak-kumar-889076347/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center;color:#bfc9d6;margin-top:18px">© 2025 U.H.S College Konahara — All Rights Reserved</div>
+  </footer>
+
+  <!-- ADMISSION MODAL -->
+  <div class="modal-back" id="modalBack" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="applyHeading">
+      <h3 id="applyHeading">Admission Form (Quick)</h3>
+      <div>
+        <div class="form-row">
+          <input type="text" id="name" placeholder="Full name" />
+          <input type="email" id="email" placeholder="Email address" />
+        </div>
+        <div class="form-row">
+          <input type="text" id="phone" placeholder="Phone number" />
+          <select id="program">
+            <option value="">Select Program</option>
+            <option>BCA</option>
+            <option>BBA</option>
+            <option>Intermediate Science</option>
+          </select>
+        </div>
+
+        <div class="actions">
+          <button class="close-btn" id="closeModal">Cancel</button>
+          <button class="btn" id="submitApply" style="background:var(--accent); color:var(--brand); padding:10px 14px; border-radius:8px">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPTS: Slider, Menu, Modal -->
+  <script>
+    (function(){
+      /* ---------- Mobile menu toggle ---------- */
+      const hamburger = document.getElementById('hamburgerBtn');
+      const nav = document.querySelector('nav ul');
+
+      hamburger.addEventListener('click', () => {
+        const shown = nav.style.display === 'flex';
+        nav.style.display = shown ? 'none' : 'flex';
+        if(!shown){
+          nav.style.flexDirection = 'column';
+          nav.style.background = 'var(--brand)';
+          nav.style.padding = '20px';
+          nav.style.position = 'absolute';
+          nav.style.top = '64px';
+          nav.style.right = '12px';
+          nav.style.borderRadius = '10px';
+          nav.style.boxShadow = '0 10px 40px rgba(2,6,23,0.4)';
+        }
+      });
+
+      /* ---------- Slider logic (auto + manual + dots + swipe) ---------- */
+      const slides = Array.from(document.querySelectorAll('.slide'));
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const dotsBox = document.getElementById('dots');
+      let active = 0;
+      let timer = null;
+      const AUTOPLAY = true;
+      const INTERVAL = 4000;
+
+      function renderDots(){
+        dotsBox.innerHTML = '';
+        slides.forEach((s,i)=>{
+          const d = document.createElement('span');
+          d.className = 'dot' + (i===active? ' active' : '');
+          d.dataset.index = i;
+          d.addEventListener('click', ()=> { goTo(i); resetTimer(); });
+          dotsBox.appendChild(d);
+        });
+      }
+
+      function show(n){
+        slides.forEach((s,idx)=> s.classList.toggle('active', idx===n));
+        active = n;
+        const dots = document.querySelectorAll('.dot');
+        dots.forEach((d,idx)=> d.classList.toggle('active', idx===n));
+      }
+
+      function next(){
+        const n = (active + 1) % slides.length;
+        show(n);
+      }
+      function prev(){
+        const n = (active - 1 + slides.length) % slides.length;
+        show(n);
+      }
+      function goTo(n){
+        show(n);
+      }
+
+      nextBtn.addEventListener('click', ()=> { next(); resetTimer(); });
+      prevBtn.addEventListener('click', ()=> { prev(); resetTimer(); });
+
+      function resetTimer(){
+        if(timer) clearInterval(timer);
+        if(AUTOPLAY) timer = setInterval(next, INTERVAL);
+      }
+
+      // swipe support
+      (function addSwipe(){
+        let startX = 0, dx = 0;
+        const el = document.querySelector('.slider');
+        el.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+        el.addEventListener('touchmove', e => { dx = e.touches[0].clientX - startX; });
+        el.addEventListener('touchend', e => {
+          if(Math.abs(dx) > 40){
+            if(dx < 0) next(); else prev();
+            resetTimer();
+          }
+          startX = 0; dx = 0;
+        });
+      })();
+
+      // init
+      renderDots();
+      show(0);
+      if(AUTOPLAY) timer = setInterval(next, INTERVAL);
+
+      /* ---------- Admission modal ---------- */
+      const openApply = document.getElementById('openApply');
+      const modalBack = document.getElementById('modalBack');
+      const closeModal = document.getElementById('closeModal');
+      const submitApply = document.getElementById('submitApply');
+
+      openApply && openApply.addEventListener('click', (e)=>{
+        e.preventDefault();
+        modalBack.style.display = 'flex';
+        modalBack.setAttribute('aria-hidden','false');
+      });
+      document.getElementById('applyNowBtn').addEventListener('click', (e)=>{
+        e.preventDefault();
+        modalBack.style.display = 'flex';
+        modalBack.setAttribute('aria-hidden','false');
+      });
+
+      closeModal.addEventListener('click', ()=> {
+        modalBack.style.display = 'none';
+        modalBack.setAttribute('aria-hidden','true');
+      });
+
+      modalBack.addEventListener('click', (e)=>{
+        if(e.target === modalBack){
+          modalBack.style.display = 'none';
+          modalBack.setAttribute('aria-hidden','true');
+        }
+      });
+
+      submitApply.addEventListener('click', ()=>{
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const program = document.getElementById('program').value.trim();
+
+        if(!name || !email || !phone || !program){
+          alert('कृपया सभी fields भरें।');
+          return;
+        }
+        // Here you would normally submit to server (AJAX / fetch). For demo, we show success:
+        alert('Application submitted successfully! We will contact you soon.');
+        document.getElementById('name').value='';
+        document.getElementById('email').value='';
+        document.getElementById('phone').value='';
+        document.getElementById('program').value='';
+        modalBack.style.display='none';
+      });
+
+      /* Accessible keyboard: close modal on Escape */
+      document.addEventListener('keydown', (e)=> {
+        if(e.key === 'Escape'){
+          modalBack.style.display = 'none';
+          modalBack.setAttribute('aria-hidden','true');
+        }
+      });
+
+    })();
+  </script>
+</body>
+</html>

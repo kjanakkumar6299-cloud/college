@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Slide Images Left to Right</title>
+
+<style>
+#sliderBox {
+  width: 320px;
+  height: 220px;
+  overflow: hidden;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+
+.slide-img {
+  position: absolute;
+  top: 0;
+  left: -100%;        /* शुरुआत में left की तरफ रखा */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: left 0.6s ease;   /* slide effect */
+}
+</style>
+</head>
+<body>
+
+<div id="sliderBox"></div>
+
+<script>
+const images = [
+  "collage.jpg",
+  "gym.jpg",
+  "hostal.jpg",
+  "janak67.jpeg",
+  "library.jpg"
+];
+
+const box = document.getElementById("sliderBox");
+let index = 0;
+let interval;
+
+// पहली image लोड करे
+addImage(images[0], true);
+
+function addImage(src, instant = false) {
+  const img = document.createElement("img");
+  img.src = src;
+  img.className = "slide-img";
+
+  if (instant) {
+    img.style.left = "0"; // पहली image बिना animation
+  }
+
+  box.appendChild(img);
+
+  // animation के लिए थोड़ी देर बाद run करें
+  setTimeout(() => {
+    img.style.left = "0";
+  }, 20);
+}
+
+// hover शुरू
+box.addEventListener("mouseenter", () => {
+  interval = setInterval(() => {
+    index = (index + 1) % images.length;
+
+    // नई image बनाएँ और slide कराएँ
+    addImage(images[index]);
+
+    // पुराने images हटाएँ ताकि एक ही दिखे
+    setTimeout(() => {
+      const all = box.querySelectorAll(".slide-img");
+      if (all.length > 1) {
+        all[0].remove();
+      }
+    }, 700);
+
+  }, 800);  // हर 0.8s में slide
+});
+
+// hover खत्म
+box.addEventListener("mouseleave", () => {
+  clearInterval(interval);
+
+  // वापस पहली image
+  const all = box.querySelectorAll(".slide-img");
+  all.forEach(el => el.remove());
+
+  index = 0;
+  addImage(images[0], true);
+});
+</script>
+</body>
+</html>

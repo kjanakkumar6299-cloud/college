@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BSEB Class 11 Admission Form 2025</title>
+  <link rel="stylesheet" href="admission11.css">
+</head>
+<body>
+  <div class="a4-page">
+
+    <!-- HEADER -->
+    <div class="form-header">
+      <img src="vikash.jpg" alt="BSEB Logo" class="logo">
+      <div>
+        <h2>BIHAR SCHOOL EXAMINATION BOARD, PATNA</h2>
+        <p><strong>Admission Application Form – Class XI (Session 2025–27)</strong></p>
+      </div>
+    </div>
+
+    <!-- PAGE 1 -->
+    <div id="page1" class="form-page active">
+
+      <form id="admissionForm">
+        <h3>🔹 Student Details</h3>
+        <div class="form-section grid-3">
+          <div><label>Full Name:</label><input type="text" required></div>
+          <div><label>Father’s Name:</label><input type="text" required></div>
+          <div><label>Mother’s Name:</label><input type="text" required></div>
+        </div>
+
+        <div class="form-section grid-3">
+          <div><label>Date of Birth:</label><input type="date" required></div>
+          <div><label>Gender:</label>
+            <div class="radio-group">
+              <label><input type="radio" name="gender" required> Male</label>
+              <label><input type="radio" name="gender"> Female</label>
+              <label><input type="radio" name="gender"> Transgender</label>
+            </div>
+          </div>
+          <div><label>Aadhar Number:</label><input type="text" maxlength="12" pattern="\d{12}" required></div>
+        </div>
+
+        <h3>🔹 Contact Details</h3>
+        <div class="form-section grid-2">
+          <div><label>Mobile Number:</label><input type="text" maxlength="10" pattern="\d{10}" required></div>
+          <div><label>Email ID:</label><input type="email" placeholder="example@gmail.com"></div>
+        </div>
+
+        <div class="form-section">
+          <label>Address:</label>
+          <textarea required></textarea>
+        </div>
+
+        <h3>🔹 Academic Details</h3>
+        <div class="form-section grid-2">
+          <div><label>Previous School Name:</label><input type="text" required></div>
+          <div><label>Board:</label><input type="text" required></div>
+        </div>
+
+        <div class="form-section grid-2">
+          <div><label>10th Roll Number:</label><input type="text" required></div>
+          <div><label>10th Percentage / CGPA:</label><input type="text" required></div>
+        </div>
+
+        <div class="form-section">
+          <label>Select Stream:</label>
+          <select id="streamSelect" required>
+            <option value="">-- Choose Stream --</option>
+            <option value="science">Science</option>
+            <option value="commerce">Commerce</option>
+            <option value="arts">Arts</option>
+          </select>
+        </div>
+
+        <button type="button" id="nextBtn">Next Page →</button>
+      </form>
+    </div>
+
+    <!-- PAGE 2 -->
+    <div id="page2" class="form-page">
+      <h3>🔹 Choose Your 5 Subjects</h3>
+
+      <p class="note">Select up to <strong>5 subjects only</strong>. Extra selections will be blocked automatically.</p>
+
+      <!-- SCIENCE -->
+      <div id="scienceSubjects" class="subject-section">
+        <h4>Science Stream Subjects</h4>
+        <div class="checkbox-grid">
+          <label><input type="checkbox" name="science"> Physics</label>
+          <label><input type="checkbox" name="science"> Chemistry</label>
+          <label><input type="checkbox" name="science"> Mathematics</label>
+          <label><input type="checkbox" name="science"> Biology</label>
+          <label><input type="checkbox" name="science"> English</label>
+          <label><input type="checkbox" name="science"> Hindi</label>
+          <label><input type="checkbox" name="science"> Computer Science</label>
+          <label><input type="checkbox" name="science"> Environmental Science</label>
+        </div>
+      </div>
+
+      <!-- COMMERCE -->
+      <div id="commerceSubjects" class="subject-section">
+        <h4>Commerce Stream Subjects</h4>
+        <div class="checkbox-grid">
+          <label><input type="checkbox" name="commerce"> Accountancy</label>
+          <label><input type="checkbox" name="commerce"> Business Studies</label>
+          <label><input type="checkbox" name="commerce"> Economics</label>
+          <label><input type="checkbox" name="commerce"> Entrepreneurship</label>
+          <label><input type="checkbox" name="commerce"> English</label>
+          <label><input type="checkbox" name="commerce"> Hindi</label>
+          <label><input type="checkbox" name="commerce"> Mathematics</label>
+          <label><input type="checkbox" name="commerce"> Informatics Practices</label>
+        </div>
+      </div>
+
+      <!-- ARTS -->
+      <div id="artsSubjects" class="subject-section">
+        <h4>Arts Stream Subjects</h4>
+        <div class="checkbox-grid">
+          <label><input type="checkbox" name="arts"> History</label>
+          <label><input type="checkbox" name="arts"> Political Science</label>
+          <label><input type="checkbox" name="arts"> Geography</label>
+          <label><input type="checkbox" name="arts"> Economics</label>
+          <label><input type="checkbox" name="arts"> Sociology</label>
+          <label><input type="checkbox" name="arts"> Psychology</label>
+          <label><input type="checkbox" name="arts"> English</label>
+          <label><input type="checkbox" name="arts"> Hindi</label>
+          <label><input type="checkbox" name="arts"> Home Science</label>
+          <label><input type="checkbox" name="arts"> Philosophy</label>
+        </div>
+      </div>
+
+      <div class="declaration">
+        <p><strong>Declaration:</strong> I declare that the above information and subject choices are correct.</p>
+        <input type="text" placeholder="Signature of Student" required>
+      </div>
+
+      <button type="button" id="prevBtn">← Previous Page</button>
+      <button type="submit" id="submitBtn">Submit Form</button>
+    </div>
+  </div>
+
+  <script>
+    const nextBtn = document.getElementById('nextBtn');
+    const prevBtn = document.getElementById('prevBtn');
+    const streamSelect = document.getElementById('streamSelect');
+    const page1 = document.getElementById('page1');
+    const page2 = document.getElementById('page2');
+    const science = document.getElementById('scienceSubjects');
+    const commerce = document.getElementById('commerceSubjects');
+    const arts = document.getElementById('artsSubjects');
+
+    nextBtn.addEventListener('click', () => {
+      if (!streamSelect.value) {
+        alert('Please select your stream before continuing.');
+        return;
+      }
+      page1.classList.remove('active');
+      page2.classList.add('active');
+
+      // Show only selected stream
+      science.style.display = 'none';
+      commerce.style.display = 'none';
+      arts.style.display = 'none';
+
+      if (streamSelect.value === 'science') science.style.display = 'block';
+      else if (streamSelect.value === 'commerce') commerce.style.display = 'block';
+      else arts.style.display = 'block';
+    });
+
+    prevBtn.addEventListener('click', () => {
+      page2.classList.remove('active');
+      page1.classList.add('active');
+    });
+
+    // Limit subject selection to 5
+    function limitSubjects(name) {
+      const checkboxes = document.querySelectorAll(`input[name="${name}"]`);
+      checkboxes.forEach(cb => {
+        cb.addEventListener('change', () => {
+          const checked = [...checkboxes].filter(c => c.checked);
+          if (checked.length > 5) {
+            alert("You can select only 5 subjects.");
+            cb.checked = false;
+          }
+        });
+      });
+    }
+
+    limitSubjects('science');
+    limitSubjects('commerce');
+    limitSubjects('arts');
+  </script>
+</body>
+</html>
